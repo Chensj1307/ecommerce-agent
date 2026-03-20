@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.11",
-    "lastTouchedAt": "2026-03-13T14:14:21.996Z"
+    "lastTouchedAt": "2026-03-19T05:55:22.312Z"
   },
   "wizard": {
     "lastRunAt": "2026-02-05T16:16:05.545Z",
@@ -189,7 +189,68 @@
       "subagents": {
         "maxConcurrent": 8
       }
-    }
+    },
+    "list": [
+      {
+        "id": "main"
+      },
+      {
+        "id": "pm",
+        "name": "pm",
+        "workspace": "/root/.openclaw/workspace-pm",
+        "agentDir": "/workspace/projects/agents/pm/agent",
+        "model": "coze/auto"
+      },
+      {
+        "id": "frontend",
+        "name": "frontend",
+        "workspace": "/root/.openclaw/workspace-frontend",
+        "agentDir": "/workspace/projects/agents/frontend/agent",
+        "model": "coze/auto"
+      },
+      {
+        "id": "backend",
+        "name": "backend",
+        "workspace": "/root/.openclaw/workspace-backend",
+        "agentDir": "/workspace/projects/agents/backend/agent",
+        "model": "coze/auto"
+      },
+      {
+        "id": "analyst",
+        "name": "analyst",
+        "workspace": "/root/.openclaw/workspace-analyst",
+        "agentDir": "/workspace/projects/agents/analyst/agent",
+        "model": "coze/auto"
+      },
+      {
+        "id": "tester",
+        "name": "tester",
+        "workspace": "/root/.openclaw/workspace-tester",
+        "agentDir": "/workspace/projects/agents/tester/agent",
+        "model": "coze/auto"
+      },
+      {
+        "id": "ui",
+        "name": "ui",
+        "workspace": "/root/.openclaw/workspace-ui",
+        "agentDir": "/workspace/projects/agents/ui/agent",
+        "model": "minimax/MiniMax-M2.5"
+      },
+      {
+        "id": "coding",
+        "name": "coding",
+        "workspace": "/root/.openclaw/workspace-coding",
+        "agentDir": "/workspace/projects/agents/coding/agent",
+        "model": "minimax/MiniMax-M2.5"
+      },
+      {
+        "id": "devops",
+        "name": "devops",
+        "workspace": "/root/.openclaw/workspace-devops",
+        "agentDir": "/workspace/projects/agents/devops/agent",
+        "model": "minimax/MiniMax-M2.5"
+      }
+    ]
   },
   "tools": {
     "web": {
@@ -201,6 +262,15 @@
       }
     }
   },
+  "bindings": [
+    {
+      "type": "route",
+      "agentId": "ui",
+      "match": {
+        "channel": "feishu"
+      }
+    }
+  ],
   "messages": {
     "ackReactionScope": "group-mentions"
   },
@@ -228,12 +298,12 @@
     },
     "feishu": {
       "allowFrom": [],
-      "appId": "",
-      "appSecret": "",
+      "appId": "cli_a93d28ec51f85bb5",
+      "appSecret": "yN8wlt5PoRtWwhHewXG1yELTIneWfLHT",
       "connectionMode": "websocket",
       "dmPolicy": "pairing",
       "domain": "feishu",
-      "enabled": false,
+      "enabled": true,
       "groupAllowFrom": [],
       "groupPolicy": "open",
       "requireMention": true,
